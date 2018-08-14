@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Form from './components/form'
 
 class App extends Component {
   constructor(props){
@@ -22,10 +23,7 @@ class App extends Component {
     const { user } = this.state.user;
     return (
       <div className="App">
-        <form onSubmit={ this.getUser }>
-          <input type='text' placeholder='Enter a username' name='name' />
-          <button>Search</button>
-        </form>
+         <Form getUser={this.getUser} />
       </div>
     );
   }
