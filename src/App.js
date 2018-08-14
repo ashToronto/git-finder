@@ -13,7 +13,9 @@ class App extends Component {
   getUser = (e) => {
     e.preventDefault();
     const name = e.target.elements.name.value
-    console.log(name)
+    fetch(`https://api.github.com/users/${name}`)
+    .then(res => res.json())
+    .then(data => data.json())
   }
 
   render() {
