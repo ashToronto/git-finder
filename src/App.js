@@ -10,8 +10,9 @@ class App extends Component {
     }
   }
 
-  getUser = () => {
-    const name = this.ref.name.value
+  getUser = (e) => {
+    e.preventDefault();
+    const name = e.target.elements.name.value
     console.log(name)
   }
 
@@ -19,8 +20,10 @@ class App extends Component {
     const { user } = this.state.user;
     return (
       <div className="App">
-        <input type='text' placeholder='Enter a username' ref='name' />
-        <button onClick={ this.getUser }></button>
+        <form onSubmit={ this.getUser }>
+          <input type='text' placeholder='Enter a username' name='name' />
+          <button>Search</button>
+        </form>
       </div>
     );
   }
