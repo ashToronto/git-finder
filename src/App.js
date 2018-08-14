@@ -15,7 +15,7 @@ class App extends Component {
     const name = e.target.elements.name.value
     fetch(`https://api.github.com/users/${name}`)
     .then(res => res.json())
-    .then(data => data.json())
+    .then(data => console.log(data))
   }
 
   render() {
