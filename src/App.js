@@ -2,12 +2,15 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Form from './components/form'
+import User from './components/user'
 
 class App extends Component {
   constructor(props){
     super(props)
     this.state = {
-      user: {}
+        name: '',
+        location: '',
+        followers: ''
     }
   }
 
@@ -16,14 +19,25 @@ class App extends Component {
     const name = e.target.elements.name.value
     fetch(`https://api.github.com/users/${name}`)
     .then(res => res.json())
-    .then(data => console.log(data))
-  }
+    .then(data => {
+      this.setState({
+          name: data.name,
+          location: data.location,
+          followers: data.followers,
+    });
+      console.log(data)
+  });
+}
 
   render() {
-    const { user } = this.state.user;
     return (
       <div className="App">
          <Form getUser={this.getUser} />
+         <User
+           name={this.state.name}
+           location={this.state.location}
+           followers={this.state.followers}
+           />
       </div>
     );
   }
