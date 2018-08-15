@@ -11,13 +11,15 @@ class App extends Component {
         name: '',
         location: '',
         followers: '',
+        repos: '',
+        gists: '',
         avatar: ''
     }
   }
 
   getUser = (e) => {
     e.preventDefault();
-    const name = e.target.elements.name.value
+    const name = e.target.value
     fetch(`https://api.github.com/users/${name}`)
     .then(res => res.json())
     .then(data => {
@@ -25,6 +27,8 @@ class App extends Component {
           name: data.name,
           location: data.location,
           followers: data.followers,
+          repos: data.public_repos,
+          gists: data.public_gists,
           avatar: data.avatar_url
     });
       console.log(data)
@@ -39,6 +43,8 @@ class App extends Component {
            name={this.state.name}
            location={this.state.location}
            followers={this.state.followers}
+           repos={this.state.repos}
+           gists={this.state.gists}
            avatar={this.state.avatar}
            />
       </div>
