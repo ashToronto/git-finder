@@ -8,6 +8,7 @@ class User extends React.Component {
         <p>{this.props.name}</p>
         <p>{this.props.location}</p>
         <p>{this.props.followers}</p>
+        <img src={this.props.avatar} alt=''/>
       </div>
     );
   }

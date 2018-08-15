@@ -10,7 +10,8 @@ class App extends Component {
     this.state = {
         name: '',
         location: '',
-        followers: ''
+        followers: '',
+        avatar: ''
     }
   }
 
@@ -24,6 +25,7 @@ class App extends Component {
           name: data.name,
           location: data.location,
           followers: data.followers,
+          avatar: data.avatar_url
     });
       console.log(data)
   });
@@ -37,6 +39,7 @@ class App extends Component {
            name={this.state.name}
            location={this.state.location}
            followers={this.state.followers}
+           avatar={this.state.avatar}
            />
       </div>
     );
