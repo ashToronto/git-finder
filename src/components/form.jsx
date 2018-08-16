@@ -4,7 +4,7 @@ class Form extends React.Component {
   render() {
     return (
       <div className="App">
-        <form onSubmit= { this.props.getUser } >
+        <form onSubmit={ this.props.getUser }>
           <input type='text' placeholder='Enter a username' name='name' />
           <button>Search</button>
         </form>

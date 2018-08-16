@@ -38,24 +38,32 @@ class App extends Component {
           gists: data.public_gists,
           avatar: data.avatar_url,
           projects: data.repos_url,
+    })
+    console.log(data)
+    return fetch(`https://api.github.com/users/${name}/repos`)
+    .then(response => response.json())
+    .then(data2 => {
+      this.setState({
+        repoDescription: data2[0].description,
     });
-      console.log(data)
+      console.log(data2)
+    });
   });
 }
 
-getRepo = (e) => {
-  e.preventDefault();
-  // const name = e.target.value
-  const name = e.target.elements.userName.value
-  fetch(`https://api.github.com/users/${name}/repos`)
-  .then(res => res.json())
-  .then(data => {
-    this.setState({
-      repoDescription: data[0].description,
-  });
-    console.log(data)
-  });
-}
+// getRepo = (e) => {
+//   e.preventDefault();
+//   // const name = e.target.value
+//   const name = e.target.elements.userName.value
+//   fetch(`https://api.github.com/users/${name}/repos`)
+//   .then(res => res.json())
+//   .then(data => {
+//     this.setState({
+//       repoDescription: data[0].description,
+//   });
+//     console.log(data)
+//   });
+// }
 
   render() {
     return (

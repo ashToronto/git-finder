@@ -14,5 +14,3 @@ class Button extends React.Component {
 };
 
 export default Button;
-
-// <form onKeyUp={ this.props.getUser }>
