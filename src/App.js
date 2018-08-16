@@ -3,6 +3,8 @@ import logo from './logo.svg';
 import './App.css';
 import Form from './components/form'
 import User from './components/user'
+import Button from './components/button'
+import Repo from './components/repo'
 
 class App extends Component {
   constructor(props){
@@ -13,13 +15,18 @@ class App extends Component {
         followers: '',
         repos: '',
         gists: '',
-        avatar: ''
+        avatar: '',
+        projects: '',
+        repoDescription: '',
+        repoWatchers: '',
+        repoForks: ''
     }
   }
 
   getUser = (e) => {
     e.preventDefault();
-    const name = e.target.value
+    // const name = e.target.value
+    const name = e.target.elements.name.value
     fetch(`https://api.github.com/users/${name}`)
     .then(res => res.json())
     .then(data => {
@@ -29,9 +36,24 @@ class App extends Component {
           followers: data.followers,
           repos: data.public_repos,
           gists: data.public_gists,
-          avatar: data.avatar_url
+          avatar: data.avatar_url,
+          projects: data.repos_url,
     });
       console.log(data)
+  });
+}
+
+getRepo = (e) => {
+  e.preventDefault();
+  // const name = e.target.value
+  const name = e.target.elements.userName.value
+  fetch(`https://api.github.com/users/${name}/repos`)
+  .then(res => res.json())
+  .then(data => {
+    this.setState({
+      repoDescription: data[0].description,
+  });
+    console.log(data)
   });
 }
 
@@ -39,6 +61,7 @@ class App extends Component {
     return (
       <div className="App">
          <Form getUser={this.getUser} />
+         <div>
          <User
            name={this.state.name}
            location={this.state.location}
@@ -46,7 +69,15 @@ class App extends Component {
            repos={this.state.repos}
            gists={this.state.gists}
            avatar={this.state.avatar}
+           projects={this.state.projects}
            />
+         </div>
+         <div>
+           <Button getRepo={this.getRepo}/>
+           <Repo
+             repoDescription={this.state.repoDescription}
+             />
+         </div>
       </div>
     );
   }

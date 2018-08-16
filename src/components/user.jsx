@@ -10,6 +10,8 @@ class User extends React.Component {
         <p>{this.props.repos}</p>
         <p>{this.props.gists}</p>
         <img src={this.props.avatar} alt=''/>
+        <p>{this.props.projects}</p>
+        <p>{this.props.repoDesription}</p>
       </div>
     );
   }
