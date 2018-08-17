@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Form from './components/form'
 import User from './components/user'
-import Button from './components/button'
 import Repo from './components/repo'
 
 class App extends Component {
@@ -17,9 +15,9 @@ class App extends Component {
         gists: '',
         avatar: '',
         projects: '',
+
         repoDescription: '',
-        repoWatchers: '',
-        repoForks: ''
+        repoInfo: [],
     }
   }
 
@@ -45,25 +43,12 @@ class App extends Component {
     .then(data2 => {
       this.setState({
         repoDescription: data2[0].description,
+        repoInfo: data2
     });
       console.log(data2)
     });
   });
 }
-
-// getRepo = (e) => {
-//   e.preventDefault();
-//   // const name = e.target.value
-//   const name = e.target.elements.userName.value
-//   fetch(`https://api.github.com/users/${name}/repos`)
-//   .then(res => res.json())
-//   .then(data => {
-//     this.setState({
-//       repoDescription: data[0].description,
-//   });
-//     console.log(data)
-//   });
-// }
 
   render() {
     return (
@@ -81,9 +66,9 @@ class App extends Component {
            />
          </div>
          <div>
-           <Button getRepo={this.getRepo}/>
            <Repo
              repoDescription={this.state.repoDescription}
+             repoInfo={this.state.repoInfo}
              />
          </div>
       </div>

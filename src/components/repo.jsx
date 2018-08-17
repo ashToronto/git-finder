@@ -5,11 +5,14 @@ class Repo extends React.Component {
     return (
       <div className="App">
         <p>{this.props.repoDescription}</p>
+        {this.props.repoInfo.map((repo, key) => (
+          <ul>
+            <p>repo description: {repo.description}</p>
+          </ul>
+        ))};
       </div>
     );
   }
 };
 
 export default Repo;
-
-// <form onKeyUp={ this.props.getUser }>
