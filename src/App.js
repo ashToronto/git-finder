@@ -11,10 +11,11 @@ class App extends Component {
         name: '',
         location: '',
         followers: '',
+        following: '',
+        memberSince: '',
         repos: '',
         gists: '',
         avatar: '',
-
         repoInfo: [],
     }
   }
@@ -30,6 +31,8 @@ class App extends Component {
           name: data.name,
           location: data.location,
           followers: data.followers,
+          following: data.following,
+          memberSince: data.created_at,
           repos: data.public_repos,
           gists: data.public_gists,
           avatar: data.avatar_url,
@@ -55,6 +58,8 @@ class App extends Component {
            name={this.state.name}
            location={this.state.location}
            followers={this.state.followers}
+           following={this.state.following}
+           memberSince={this.state.memberSince}
            repos={this.state.repos}
            gists={this.state.gists}
            avatar={this.state.avatar}
@@ -66,7 +71,7 @@ class App extends Component {
              />
          </div>
       </div>
-    );
+    )
   }
 }
 
