@@ -14,9 +14,7 @@ class App extends Component {
         repos: '',
         gists: '',
         avatar: '',
-        projects: '',
 
-        repoDescription: '',
         repoInfo: [],
     }
   }
@@ -35,14 +33,12 @@ class App extends Component {
           repos: data.public_repos,
           gists: data.public_gists,
           avatar: data.avatar_url,
-          projects: data.repos_url,
     })
     console.log(data)
     return fetch(`https://api.github.com/users/${name}/repos`)
     .then(response => response.json())
     .then(data2 => {
       this.setState({
-        repoDescription: data2[0].description,
         repoInfo: data2
     });
       console.log(data2)
@@ -62,12 +58,10 @@ class App extends Component {
            repos={this.state.repos}
            gists={this.state.gists}
            avatar={this.state.avatar}
-           projects={this.state.projects}
            />
          </div>
          <div>
            <Repo
-             repoDescription={this.state.repoDescription}
              repoInfo={this.state.repoInfo}
              />
          </div>
