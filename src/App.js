@@ -17,6 +17,8 @@ class App extends Component {
         gists: '',
         avatar: '',
         repoInfo: [],
+
+        isHidden: false
     }
   }
 
@@ -36,6 +38,7 @@ class App extends Component {
           repos: data.public_repos,
           gists: data.public_gists,
           avatar: data.avatar_url,
+          isHidden: true
     })
     console.log(data)
     return fetch(`https://api.github.com/users/${name}/repos`)
@@ -54,6 +57,7 @@ class App extends Component {
       <div className="App">
          <Form getUser={this.getUser} />
          <div>
+           {this.state.isHidden ?
          <User
            name={this.state.name}
            location={this.state.location}
@@ -64,6 +68,7 @@ class App extends Component {
            gists={this.state.gists}
            avatar={this.state.avatar}
            />
+         : null}
          </div>
          <div>
            <Repo
