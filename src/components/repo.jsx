@@ -13,7 +13,8 @@ class Repo extends React.Component {
 
         <div className="col-md-3">
           <span className="badge badge-dark">forks: {repo.forks}</span>
-          <span className="badge badge-primary">stars: {repo.stargazers_count}</span>
+          <span className="badge badge-success">stars: {repo.stargazers_count}</span>
+          <span class="badge badge-primary">Watchers: {repo.watchers_count}</span>
           </div>
 
           <div className="col-md-2">
