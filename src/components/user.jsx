@@ -8,6 +8,7 @@ class User extends React.Component {
       <div className="row">
       <div className="col-md-3">
       <img className="img-thumbnail avatar" src={this.props.avatar} alt=''/>
+      <a href={this.props.profile}><button className="btn btn-primary btn-block">Profile</button></a>
       </div>
       <div className="col-md-9">
       <span className="badge badge-dark">followers {this.props.followers}</span>
@@ -17,7 +18,7 @@ class User extends React.Component {
       <br></br>
         <ul className="list-group-item">
         <p>{this.props.location}</p>
-        <p>member since {this.props.memberSince}</p>
+        <p>Joined: {this.props.memberSince}</p>
         </ul>
       </div>
     </div>

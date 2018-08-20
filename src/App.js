@@ -16,8 +16,8 @@ class App extends Component {
         repos: '',
         gists: '',
         avatar: '',
+        profile: '',
         repoInfo: [],
-
         isHidden: false
     }
   }
@@ -38,6 +38,7 @@ class App extends Component {
           repos: data.public_repos,
           gists: data.public_gists,
           avatar: data.avatar_url,
+          profile: data.html_url,
           isHidden: true
     })
     console.log(data)
@@ -67,6 +68,7 @@ class App extends Component {
            repos={this.state.repos}
            gists={this.state.gists}
            avatar={this.state.avatar}
+           profile={this.state.profile}
            />
          : null}
          </div>

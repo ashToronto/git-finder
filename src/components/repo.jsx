@@ -8,15 +8,15 @@ class Repo extends React.Component {
         <div className="card">
         <div className="row">
         <div className="col-md-7">
-
-        <div className="col-md-3">
           <strong>{repo.name}</strong>: {repo.description}
         </div>
 
         <div className="col-md-3">
           <span className="badge badge-dark">forks: {repo.forks}</span>
           <span className="badge badge-primary">stars: {repo.stargazers_count}</span>
+          </div>
 
+          <div className="col-md-2">
           <a href={repo.html_url}>
             <button className="btn btn-dark">
               Repo Page
@@ -24,7 +24,6 @@ class Repo extends React.Component {
           </a>
           </div>
 
-        </div>
         </div>
         </div>
         </ul>))
