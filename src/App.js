@@ -45,11 +45,10 @@ class App extends Component {
     return fetch(`https://api.github.com/users/${name}/repos`)
     .then(response => response.json())
     .then(data2 => {
-      this.setState({
-        repoInfo: data2
-    });
+      this.setState({repoInfo: data2});
       console.log(data2)
-    });
+      console.log(data2[1].name)
+    })
   });
 }
 

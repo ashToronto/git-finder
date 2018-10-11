@@ -8,7 +8,7 @@ class Repo extends React.Component {
         <div className="card">
         <div className="row">
         <div className="col-md-7">
-          <strong>{repo.name}</strong>: {repo.description}
+          <strong>{repo.name}</strong> {repo.description}
         </div>
 
         <div className="col-md-3">
