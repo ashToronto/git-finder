@@ -1,7 +1,7 @@
 ## Git-Finder
 A simple single page application to search for github user accounts.
 Shows user repository data and a link to navigate directly to the specified repo.
-Relies on the giyhub api which has a maximum of 50 calls per hour.
+Relies on the github api which has a maximum of 50 calls per hour.
 
 ## Getting started
 Fork or clone this repo and just use npm install command to get started. That's it you're good to go.
